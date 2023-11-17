@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets-2/style.css">
+</head>
+<body>
+
+    <header>
+        <img src="assets-2/img/epicode_logo.png" >
+    </header>
+    <div id="container">
+
+        <h1>Welcome to <br><span>your exam</span></h1>
+
+        <h3 class="pink">Instructions</h3>
+        <p>We don't expect most engineers to know the answers to all of these questions, so don't worry if you're unsure of a few of them. </p>
+        <ul>
+
+            <li> Each question is <strong>timed</strong> and can only be <strong>answered once</strong>.</li>
+            <li>Changing browser tab or opening other windows will <strong>invalidate the question</strong>.</li>
+            <li>This exam will take <strong> 0-5 minutes</strong>.</li>
+        </ul>
+        <p>Select test level</p>
+        <form id="difficolta" >
+            <label for="difficolta">Select test level</label>
+            <input  type="radio" name="difficolta" value="5">Easy
+            <input checked type="radio" name="difficolta" value="7">Medium
+            <input  type="radio" name="difficolta" value="10">Hard
+        </form>
+
+        </form>
+
+
+
+        <form class="condizioni" action="./test.html">
+            <div class="condizioni"><input type="checkbox" required>  <b>I promise to answer myself without help from anyone</b></div>
+            <button id="procedi" class="upperCase">proceed</button>
+        </form>
+        
+    </div>
+ 
+    <script>
+        var diffSelezionata = 7; // inizializziamo la variabile a 7 come il radioButton che parte checked 
+        var difficolta = document.getElementsByName('difficolta'); //prendiamo gli elementi con nome difficiolta
+            difficolta.forEach(el => {
+                el.addEventListener('click', function () {// ad ogni elementi aggiungiamo un eventi listenere sul click che fa partire una funzione
+                    diffSelezionata = el.value; // assegna alla variabile il valore del radio selezionato 
+                    console.log(diffSelezionata)
+                    localStorage.setItem("storageName",diffSelezionata); // salva la variabile in locale perpotervi accedere una volta cambiata pagina
+                })
+            })
+    </script>
+    
+    
+</body>
+</html>
